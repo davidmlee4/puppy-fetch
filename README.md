@@ -33,24 +33,30 @@ For each question, put your answer in the space provided. It is important every 
 1. In the space below, fill out the blanks to complete a fetch request to get all the dogs out of the database and print the response to the console.
 
 ```javascript
-fetch(_________)
-.then(_________)
-.then(console.log)
+fetch(http://localhost:3000/puppies)
+.then(resp => resp.json())
+.then(console.log(json))
 ```
 
 2. In the request above, what does `fetch` return? 
 
 ```
+returns the object that represents what the data source sent back
 ```
 
 3. In the request above, what is `.then`? What does it return?
 
 ```
+first .then returns the response as a JSON 
+second .then returns the array usable for DOM manipulation
 ```
 
 4. In the space below, provide the fetch request needed to get the dog with the id of 4 and print the response to the console.
 
 ```javascript
+fetch("http://localhost:3000/puppies")
+.then(resp => resp.json())
+.then(json => console.log(json[4]))
 
 ```
 
@@ -59,6 +65,9 @@ fetch(_________)
 >My dog is a {dog's breed} named {dog's name}. They are {dog's age} months old and they are pretty {dog's personality}.
 
 ```javascript
+fetch("http://localhost:3000/puppies")
+.then(resp => resp.json())
+.then(json => console.log(`My dog is a ${json[4].breed} named ${json[4].name}. They are ${json[4].ageInMonths} months old and they are pretty ${json[4].personality}`))
 
 ```
 
